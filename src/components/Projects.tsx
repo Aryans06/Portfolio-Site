@@ -55,13 +55,13 @@ export default function Projects() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] as [number,number,number,number] }}
           style={{ marginBottom: "72px" }}
         >
           <span className="section-label">03 — Projects</span>
           <h2
             style={{
-              fontFamily: "'Cormorant Garamond', serif",
+              fontFamily: "var(--font-display), serif",
               fontSize: "clamp(42px, 6vw, 72px)",
               fontWeight: 600,
               lineHeight: 1,
@@ -108,7 +108,7 @@ function ProjectCard({
       transition={{
         duration: 0.7,
         delay: index * 0.12,
-        ease: [0.22, 1, 0.36, 1],
+        ease: [0.22, 1, 0.36, 1] as [number,number,number,number],
       }}
       style={{
         borderTop: "1px solid var(--border)",
@@ -129,7 +129,7 @@ function ProjectCard({
         {/* Number */}
         <div
           style={{
-            fontFamily: "'Cormorant Garamond', serif",
+            fontFamily: "var(--font-display), serif",
             fontSize: "3.5rem",
             fontWeight: 300,
             color: "var(--cream-darker)",
@@ -153,7 +153,7 @@ function ProjectCard({
           >
             <h3
               style={{
-                fontFamily: "'Cormorant Garamond', serif",
+                fontFamily: "var(--font-display), serif",
                 fontSize: "clamp(28px, 4vw, 48px)",
                 fontWeight: 600,
                 letterSpacing: "-0.02em",
@@ -166,7 +166,7 @@ function ProjectCard({
             {project.isOpenSource && (
               <span
                 style={{
-                  fontFamily: "'Space Mono', monospace",
+                  fontFamily: "var(--font-mono), monospace",
                   fontSize: "0.55rem",
                   letterSpacing: "0.15em",
                   textTransform: "uppercase",
@@ -182,7 +182,7 @@ function ProjectCard({
 
           <p
             style={{
-              fontFamily: "'Space Mono', monospace",
+              fontFamily: "var(--font-mono), monospace",
               fontSize: "0.65rem",
               letterSpacing: "0.1em",
               textTransform: "uppercase",
@@ -211,7 +211,7 @@ function ProjectCard({
               <span
                 key={t}
                 style={{
-                  fontFamily: "'Space Mono', monospace",
+                  fontFamily: "var(--font-mono), monospace",
                   fontSize: "0.58rem",
                   letterSpacing: "0.1em",
                   textTransform: "uppercase",
@@ -247,7 +247,7 @@ function ProjectCard({
           >
             <div
               style={{
-                fontFamily: "'Cormorant Garamond', serif",
+                fontFamily: "var(--font-display), serif",
                 fontSize: "1.4rem",
                 fontWeight: 600,
                 color: "var(--accent)",
@@ -258,7 +258,7 @@ function ProjectCard({
             </div>
             <div
               style={{
-                fontFamily: "'Space Mono', monospace",
+                fontFamily: "var(--font-mono), monospace",
                 fontSize: "0.55rem",
                 letterSpacing: "0.1em",
                 textTransform: "uppercase",
@@ -275,7 +275,7 @@ function ProjectCard({
             target="_blank"
             rel="noopener noreferrer"
             style={{
-              fontFamily: "'Space Mono', monospace",
+              fontFamily: "var(--font-mono), monospace",
               fontSize: "0.6rem",
               letterSpacing: "0.15em",
               textTransform: "uppercase",

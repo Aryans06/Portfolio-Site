@@ -60,12 +60,12 @@ export default function Skills() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] as [number,number,number,number] }}
           >
             <span className="section-label">02 — Skills</span>
             <h2
               style={{
-                fontFamily: "'Cormorant Garamond', serif",
+                fontFamily: "var(--font-display), serif",
                 fontSize: "clamp(42px, 6vw, 72px)",
                 fontWeight: 600,
                 lineHeight: 1,
@@ -116,7 +116,7 @@ export default function Skills() {
               transition={{
                 duration: 0.6,
                 delay: 0.1 + gi * 0.08,
-                ease: [0.22, 1, 0.36, 1],
+                ease: [0.22, 1, 0.36, 1] as [number,number,number,number],
               }}
               style={{
                 backgroundColor: "var(--cream-dark)",
@@ -125,7 +125,7 @@ export default function Skills() {
             >
               <div
                 style={{
-                  fontFamily: "'Space Mono', monospace",
+                  fontFamily: "var(--font-mono), monospace",
                   fontSize: "0.6rem",
                   letterSpacing: "0.2em",
                   textTransform: "uppercase",
@@ -150,7 +150,7 @@ export default function Skills() {
                       padding: "5px 12px",
                       border: "1px solid var(--cream-darker)",
                       backgroundColor: "var(--cream)",
-                      fontFamily: "'Outfit', sans-serif",
+                      fontFamily: "var(--font-body), sans-serif",
                       fontSize: "0.8rem",
                       fontWeight: 400,
                       color: "var(--text-secondary)",

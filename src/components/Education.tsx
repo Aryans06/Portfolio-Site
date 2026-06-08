@@ -42,13 +42,13 @@ export default function Education() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] as [number,number,number,number] }}
           style={{ marginBottom: "72px" }}
         >
           <span className="section-label">04 — Education & Achievements</span>
           <h2
             style={{
-              fontFamily: "'Cormorant Garamond', serif",
+              fontFamily: "var(--font-display), serif",
               fontSize: "clamp(42px, 6vw, 72px)",
               fontWeight: 600,
               lineHeight: 1,
@@ -76,11 +76,11 @@ export default function Education() {
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] as [number,number,number,number] }}
           >
             <div
               style={{
-                fontFamily: "'Space Mono', monospace",
+                fontFamily: "var(--font-mono), monospace",
                 fontSize: "0.6rem",
                 letterSpacing: "0.2em",
                 textTransform: "uppercase",
@@ -115,7 +115,7 @@ export default function Education() {
               />
               <div
                 style={{
-                  fontFamily: "'Cormorant Garamond', serif",
+                  fontFamily: "var(--font-display), serif",
                   fontSize: "1.6rem",
                   fontWeight: 600,
                   color: "var(--text-primary)",
@@ -127,7 +127,7 @@ export default function Education() {
               </div>
               <div
                 style={{
-                  fontFamily: "'Outfit', sans-serif",
+                  fontFamily: "var(--font-body), sans-serif",
                   fontSize: "0.9rem",
                   color: "var(--text-secondary)",
                   fontWeight: 400,
@@ -150,7 +150,7 @@ export default function Education() {
                   <div key={item.label}>
                     <div
                       style={{
-                        fontFamily: "'Space Mono', monospace",
+                        fontFamily: "var(--font-mono), monospace",
                         fontSize: "0.58rem",
                         letterSpacing: "0.15em",
                         textTransform: "uppercase",
@@ -162,7 +162,7 @@ export default function Education() {
                     </div>
                     <div
                       style={{
-                        fontFamily: "'Cormorant Garamond', serif",
+                        fontFamily: "var(--font-display), serif",
                         fontSize: "1.4rem",
                         fontWeight: 600,
                         color: "var(--accent)",
@@ -178,7 +178,7 @@ export default function Education() {
                   marginTop: "20px",
                   paddingTop: "20px",
                   borderTop: "1px solid var(--border)",
-                  fontFamily: "'Space Mono', monospace",
+                  fontFamily: "var(--font-mono), monospace",
                   fontSize: "0.6rem",
                   letterSpacing: "0.08em",
                   color: "var(--text-muted)",
@@ -211,7 +211,7 @@ export default function Education() {
                 >
                   <div
                     style={{
-                      fontFamily: "'Space Mono', monospace",
+                      fontFamily: "var(--font-mono), monospace",
                       fontSize: "0.58rem",
                       letterSpacing: "0.15em",
                       textTransform: "uppercase",
@@ -223,7 +223,7 @@ export default function Education() {
                   </div>
                   <div
                     style={{
-                      fontFamily: "'Cormorant Garamond', serif",
+                      fontFamily: "var(--font-display), serif",
                       fontSize: "1.8rem",
                       fontWeight: 600,
                       color: "var(--text-primary)",
@@ -240,12 +240,12 @@ export default function Education() {
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] as [number,number,number,number] }}
           >
             {/* Achievements */}
             <div
               style={{
-                fontFamily: "'Space Mono', monospace",
+                fontFamily: "var(--font-mono), monospace",
                 fontSize: "0.6rem",
                 letterSpacing: "0.2em",
                 textTransform: "uppercase",
@@ -279,7 +279,7 @@ export default function Education() {
                   <div>
                     <div
                       style={{
-                        fontFamily: "'Outfit', sans-serif",
+                        fontFamily: "var(--font-body), sans-serif",
                         fontSize: "0.95rem",
                         fontWeight: 500,
                         color: "var(--text-primary)",
@@ -290,7 +290,7 @@ export default function Education() {
                     </div>
                     <div
                       style={{
-                        fontFamily: "'Outfit', sans-serif",
+                        fontFamily: "var(--font-body), sans-serif",
                         fontSize: "0.8rem",
                         color: "var(--text-muted)",
                         fontWeight: 300,
@@ -301,7 +301,7 @@ export default function Education() {
                   </div>
                   <span
                     style={{
-                      fontFamily: "'Space Mono', monospace",
+                      fontFamily: "var(--font-mono), monospace",
                       fontSize: "0.6rem",
                       letterSpacing: "0.1em",
                       color: "var(--accent)",
@@ -319,7 +319,7 @@ export default function Education() {
             {/* Certifications */}
             <div
               style={{
-                fontFamily: "'Space Mono', monospace",
+                fontFamily: "var(--font-mono), monospace",
                 fontSize: "0.6rem",
                 letterSpacing: "0.2em",
                 textTransform: "uppercase",
@@ -356,7 +356,7 @@ export default function Education() {
                   />
                   <span
                     style={{
-                      fontFamily: "'Outfit', sans-serif",
+                      fontFamily: "var(--font-body), sans-serif",
                       fontSize: "0.85rem",
                       color: "var(--text-secondary)",
                       fontWeight: 300,

@@ -2,10 +2,12 @@
 
 import { motion } from "framer-motion";
 
+const EASE = [0.22, 1, 0.36, 1] as const;
+
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 30 },
   animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.8, delay, ease: [0.22, 1, 0.36, 1] },
+  transition: { duration: 0.8, delay, ease: EASE },
 });
 
 export default function Hero() {
@@ -29,7 +31,7 @@ export default function Hero() {
           top: "50%",
           left: "50%",
           transform: "translate(-50%, -50%)",
-          fontFamily: "'Cormorant Garamond', serif",
+          fontFamily: "var(--font-display), serif",
           fontSize: "clamp(80px, 18vw, 280px)",
           fontWeight: 700,
           color: "transparent",
@@ -68,7 +70,7 @@ export default function Hero() {
         />
         <span
           style={{
-            fontFamily: "'Space Mono', monospace",
+            fontFamily: "var(--font-mono), monospace",
             fontSize: "0.6rem",
             letterSpacing: "0.15em",
             textTransform: "uppercase",
@@ -91,7 +93,7 @@ export default function Hero() {
         <motion.h1
           {...fadeUp(0.25)}
           style={{
-            fontFamily: "'Cormorant Garamond', serif",
+            fontFamily: "var(--font-display), serif",
             fontSize: "clamp(52px, 9vw, 130px)",
             fontWeight: 600,
             lineHeight: 0.95,
@@ -146,7 +148,7 @@ export default function Hero() {
                 padding: "14px 32px",
                 backgroundColor: "var(--text-primary)",
                 color: "var(--cream)",
-                fontFamily: "'Space Mono', monospace",
+                fontFamily: "var(--font-mono), monospace",
                 fontSize: "0.65rem",
                 letterSpacing: "0.15em",
                 textTransform: "uppercase",
@@ -174,7 +176,7 @@ export default function Hero() {
                 padding: "14px 32px",
                 backgroundColor: "transparent",
                 color: "var(--text-primary)",
-                fontFamily: "'Space Mono', monospace",
+                fontFamily: "var(--font-mono), monospace",
                 fontSize: "0.65rem",
                 letterSpacing: "0.15em",
                 textTransform: "uppercase",
@@ -215,7 +217,7 @@ export default function Hero() {
       >
         <span
           style={{
-            fontFamily: "'Space Mono', monospace",
+            fontFamily: "var(--font-mono), monospace",
             fontSize: "0.6rem",
             letterSpacing: "0.2em",
             textTransform: "uppercase",

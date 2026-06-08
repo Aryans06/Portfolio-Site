@@ -46,7 +46,7 @@ export default function Navigation() {
         <a
           href="#"
           style={{
-            fontFamily: "'Cormorant Garamond', serif",
+            fontFamily: "var(--font-display), serif",
             fontSize: "1.25rem",
             fontWeight: 600,
             color: "var(--text-primary)",
@@ -73,7 +73,7 @@ export default function Navigation() {
               <a
                 href={link.href}
                 style={{
-                  fontFamily: "'Space Mono', monospace",
+                  fontFamily: "var(--font-mono), monospace",
                   fontSize: "0.65rem",
                   letterSpacing: "0.15em",
                   textTransform: "uppercase",
@@ -159,7 +159,7 @@ export default function Navigation() {
                     href={link.href}
                     onClick={() => setMenuOpen(false)}
                     style={{
-                      fontFamily: "'Space Mono', monospace",
+                      fontFamily: "var(--font-mono), monospace",
                       fontSize: "0.7rem",
                       letterSpacing: "0.15em",
                       textTransform: "uppercase",

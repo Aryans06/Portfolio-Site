@@ -38,12 +38,12 @@ export default function About() {
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] as [number,number,number,number] }}
           >
             <span className="section-label">01 — About</span>
             <h2
               style={{
-                fontFamily: "'Cormorant Garamond', serif",
+                fontFamily: "var(--font-display), serif",
                 fontSize: "clamp(42px, 6vw, 72px)",
                 fontWeight: 600,
                 lineHeight: 1,
@@ -82,7 +82,7 @@ export default function About() {
                 >
                   <div
                     style={{
-                      fontFamily: "'Cormorant Garamond', serif",
+                      fontFamily: "var(--font-display), serif",
                       fontSize: "2.2rem",
                       fontWeight: 600,
                       color: "var(--accent)",
@@ -93,7 +93,7 @@ export default function About() {
                   </div>
                   <div
                     style={{
-                      fontFamily: "'Space Mono', monospace",
+                      fontFamily: "var(--font-mono), monospace",
                       fontSize: "0.6rem",
                       letterSpacing: "0.15em",
                       textTransform: "uppercase",
@@ -112,7 +112,7 @@ export default function About() {
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] as [number,number,number,number] }}
           >
             <p
               style={{
@@ -183,7 +183,7 @@ export default function About() {
                   target="_blank"
                   rel="noopener noreferrer"
                   style={{
-                    fontFamily: "'Space Mono', monospace",
+                    fontFamily: "var(--font-mono), monospace",
                     fontSize: "0.65rem",
                     letterSpacing: "0.15em",
                     textTransform: "uppercase",
