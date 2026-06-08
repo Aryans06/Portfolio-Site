@@ -35,7 +35,7 @@ export default function Hero() {
           fontSize: "clamp(80px, 18vw, 280px)",
           fontWeight: 700,
           color: "transparent",
-          WebkitTextStroke: "1px var(--cream-darker)",
+          WebkitTextStroke: "2px #C8BFB2",
           letterSpacing: "-0.04em",
           whiteSpace: "nowrap",
           pointerEvents: "none",
@@ -95,7 +95,7 @@ export default function Hero() {
           style={{
             fontFamily: "var(--font-display), serif",
             fontSize: "clamp(52px, 9vw, 130px)",
-            fontWeight: 600,
+            fontWeight: 700,
             lineHeight: 0.95,
             letterSpacing: "-0.03em",
             color: "var(--text-primary)",
