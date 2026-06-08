@@ -11,7 +11,7 @@ const projects = [
     description:
       "Built an AI-powered codebase search engine using Next.js and Supabase (pgvector), delivering Llama-3 70B responses via Groq API at 800+ tokens/sec. Engineered an AST-based context chunker processing 1,000 files per minute, plus a Privacy Mode routing to local Ollama for 100% data privacy.",
     tech: ["Next.js", "TypeScript", "Llama-3", "Supabase", "TailwindCSS", "Clerk"],
-    href: "#",
+    href: "https://github.com/Aryans06/CodeAtlas",
     highlight: "800 tokens/sec",
   },
   {
@@ -21,7 +21,7 @@ const projects = [
     description:
       "Built a real-time emergency coordination platform with bidirectional Socket.io syncing data across 4 dedicated interfaces at <100ms latency. Integrated Google Gemini 2.5 Flash to process unstructured SOS signals in under 2 seconds, generating structured emergency response protocols automatically.",
     tech: ["TypeScript", "Node.js", "Next.js", "Socket.io", "Gemini API"],
-    href: "#",
+    href: "https://github.com/Aryans06/Beacon",
     highlight: "<100ms latency",
   },
   {
@@ -31,7 +31,7 @@ const projects = [
     description:
       "Developed and published an AI-powered CLI using the Google Gemini API that generates conventional commits from staged changes. Reached 100+ organic downloads in its first week. Uses contextual prompt engineering to reliably categorise file changes (feat:, fix:, chore:) without sacrificing speed.",
     tech: ["Node.js", "Gemini API", "CLI Architecture", "NPM"],
-    href: "#",
+    href: "https://github.com/Aryans06/Git-Pulse",
     highlight: "100+ downloads wk 1",
     isOpenSource: true,
   },

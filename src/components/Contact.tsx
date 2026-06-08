@@ -5,9 +5,9 @@ import { useRef } from "react";
 
 const socials = [
   { label: "Email", value: "aryanjha.works@gmail.com", href: "mailto:aryanjha.works@gmail.com" },
-  { label: "LinkedIn", value: "linkedin.com/in/aryan-jha", href: "https://linkedin.com/in/aryan-jha" },
-  { label: "GitHub", value: "github.com/aryanjha", href: "https://github.com/aryanjha" },
-  { label: "LeetCode", value: "leetcode.com/aryanjha", href: "https://leetcode.com/aryanjha" },
+  { label: "LinkedIn", value: "linkedin.com/in/aryanj06", href: "https://www.linkedin.com/in/aryanj06/" },
+  { label: "GitHub", value: "github.com/Aryans06", href: "https://github.com/Aryans06" },
+  { label: "LeetCode", value: "leetcode.com/bravo_delta", href: "https://leetcode.com/bravo_delta" },
 ];
 
 export default function Contact() {
@@ -228,7 +228,7 @@ export default function Contact() {
               color: "var(--text-muted)",
             }}
           >
-            © 2025 Aryan Jha
+            © 2026 Aryan Jha
           </span>
           <span
             style={{
