@@ -2,6 +2,7 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import Image from "next/image";
 
 const stats = [
   { value: "9.59", label: "CGPA" },
@@ -28,35 +29,85 @@ export default function About() {
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "1fr 1.6fr",
+            gridTemplateColumns: "320px 1fr",
             gap: "80px",
             alignItems: "start",
           }}
           className="about-grid"
         >
-          {/* Left col */}
+          {/* Left col — photo + stats */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] as [number,number,number,number] }}
           >
             <span className="section-label">01 — About</span>
-            <h2
+
+            {/* Portrait */}
+            <div
               style={{
-                fontFamily: "var(--font-display), serif",
-                fontSize: "clamp(42px, 6vw, 72px)",
-                fontWeight: 600,
-                lineHeight: 1,
-                letterSpacing: "-0.02em",
-                color: "var(--text-primary)",
-                margin: "20px 0 0",
+                position: "relative",
+                marginTop: "24px",
+                marginBottom: "48px",
               }}
             >
-              Who I{" "}
-              <span style={{ fontStyle: "italic", color: "var(--accent)" }}>
-                am
-              </span>
-            </h2>
+              {/* Offset accent frame */}
+              <div
+                style={{
+                  position: "absolute",
+                  top: "12px",
+                  left: "12px",
+                  right: "-12px",
+                  bottom: "-12px",
+                  border: "1px solid var(--accent)",
+                  zIndex: 0,
+                  pointerEvents: "none",
+                }}
+              />
+              <div
+                style={{
+                  position: "relative",
+                  zIndex: 1,
+                  overflow: "hidden",
+                  aspectRatio: "3 / 4",
+                  backgroundColor: "var(--cream-dark)",
+                  border: "1px solid var(--border)",
+                }}
+              >
+                <Image
+                  src="/aryan.jpg"
+                  alt="Aryan Jha"
+                  fill
+                  style={{ objectFit: "cover", objectPosition: "center top" }}
+                  sizes="320px"
+                  priority
+                />
+              </div>
+
+              {/* Caption chip */}
+              <div
+                style={{
+                  position: "absolute",
+                  bottom: "-12px",
+                  right: "-12px",
+                  zIndex: 2,
+                  backgroundColor: "var(--accent)",
+                  padding: "6px 14px",
+                }}
+              >
+                <span
+                  style={{
+                    fontFamily: "var(--font-mono), monospace",
+                    fontSize: "0.55rem",
+                    letterSpacing: "0.15em",
+                    textTransform: "uppercase",
+                    color: "var(--cream)",
+                  }}
+                >
+                  Chennai, India
+                </span>
+              </div>
+            </div>
 
             {/* Stats grid */}
             <div
@@ -64,8 +115,9 @@ export default function About() {
                 display: "grid",
                 gridTemplateColumns: "1fr 1fr",
                 gap: "1px",
-                marginTop: "48px",
+                marginTop: "16px",
                 border: "1px solid var(--border)",
+                backgroundColor: "var(--border)",
               }}
             >
               {stats.map((stat, i) => (
@@ -75,15 +127,14 @@ export default function About() {
                   animate={inView ? { opacity: 1 } : {}}
                   transition={{ duration: 0.5, delay: 0.2 + i * 0.1 }}
                   style={{
-                    padding: "24px 20px",
-                    borderRight: i % 2 === 0 ? "1px solid var(--border)" : "none",
-                    borderBottom: i < 2 ? "1px solid var(--border)" : "none",
+                    padding: "20px 18px",
+                    backgroundColor: "var(--cream)",
                   }}
                 >
                   <div
                     style={{
                       fontFamily: "var(--font-display), serif",
-                      fontSize: "2.2rem",
+                      fontSize: "2rem",
                       fontWeight: 600,
                       color: "var(--accent)",
                       lineHeight: 1,
@@ -94,7 +145,7 @@ export default function About() {
                   <div
                     style={{
                       fontFamily: "var(--font-mono), monospace",
-                      fontSize: "0.6rem",
+                      fontSize: "0.58rem",
                       letterSpacing: "0.15em",
                       textTransform: "uppercase",
                       color: "var(--text-muted)",
@@ -108,12 +159,30 @@ export default function About() {
             </div>
           </motion.div>
 
-          {/* Right col */}
+          {/* Right col — bio */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] as [number,number,number,number] }}
+            style={{ paddingTop: "36px" }}
           >
+            <h2
+              style={{
+                fontFamily: "var(--font-display), serif",
+                fontSize: "clamp(42px, 6vw, 72px)",
+                fontWeight: 600,
+                lineHeight: 1,
+                letterSpacing: "-0.02em",
+                color: "var(--text-primary)",
+                margin: "0 0 40px",
+              }}
+            >
+              Who I{" "}
+              <span style={{ fontStyle: "italic", color: "var(--accent)" }}>
+                am
+              </span>
+            </h2>
+
             <p
               style={{
                 fontSize: "1.15rem",
@@ -152,7 +221,7 @@ export default function About() {
                 fontWeight: 300,
               }}
             >
-              Outside of projects, I actively sharpen my problem-solving through
+              Outside of projects, I sharpen my problem-solving through
               competitive programming (250+ LeetCode problems) and have been
               recognised at{" "}
               <span style={{ color: "var(--text-primary)", fontWeight: 500 }}>
@@ -212,7 +281,7 @@ export default function About() {
 
       <style>{`
         @media (max-width: 768px) {
-          .about-grid { grid-template-columns: 1fr !important; gap: 48px !important; }
+          .about-grid { grid-template-columns: 1fr !important; gap: 60px !important; }
         }
       `}</style>
     </section>
