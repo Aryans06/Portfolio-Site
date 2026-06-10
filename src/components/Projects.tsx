@@ -1,7 +1,8 @@
 "use client";
 
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState } from "react";
+import RevealText from "@/components/fx/RevealText";
 
 const projects = [
   {
@@ -70,10 +71,14 @@ export default function Projects() {
               margin: "20px 0 0",
             }}
           >
-            Selected{" "}
-            <span style={{ fontStyle: "italic", color: "var(--accent)" }}>
-              Work
-            </span>
+            <RevealText
+              words={[
+                { text: "Selected" },
+                { text: "Work", italic: true, accent: true },
+              ]}
+              show={inView}
+              delay={0.15}
+            />
           </h2>
         </motion.div>
 
@@ -99,6 +104,7 @@ function ProjectCard({
 }) {
   const cardRef = useRef(null);
   const cardInView = useInView(cardRef, { once: true, margin: "-60px" });
+  const [hovered, setHovered] = useState(false);
 
   return (
     <motion.div
@@ -114,31 +120,56 @@ function ProjectCard({
         borderTop: "1px solid var(--border)",
         padding: "48px 0",
         cursor: "pointer",
+        position: "relative",
       }}
       className="project-card"
+      data-cursor="view"
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      onClick={() => window.open(project.href, "_blank", "noopener,noreferrer")}
     >
+      {/* Hover wash — expands from the left edge */}
+      <motion.div
+        aria-hidden
+        initial={false}
+        animate={{ scaleX: hovered ? 1 : 0 }}
+        transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+        style={{
+          position: "absolute",
+          top: 0,
+          bottom: 0,
+          left: "-40px",
+          right: "-40px",
+          backgroundColor: "var(--cream-dark)",
+          transformOrigin: "left",
+          pointerEvents: "none",
+        }}
+      />
       <div
         style={{
           display: "grid",
           gridTemplateColumns: "80px 1fr auto",
           gap: "32px",
           alignItems: "start",
+          position: "relative",
         }}
         className="project-inner"
       >
         {/* Number */}
-        <div
+        <motion.div
+          initial={false}
+          animate={{ color: hovered ? "var(--accent)" : "var(--cream-darker)" }}
+          transition={{ duration: 0.3 }}
           style={{
             fontFamily: "var(--font-display), serif",
             fontSize: "3.5rem",
             fontWeight: 300,
-            color: "var(--cream-darker)",
             lineHeight: 1,
             paddingTop: "4px",
           }}
         >
           {project.number}
-        </div>
+        </motion.div>
 
         {/* Content */}
         <div>
@@ -151,7 +182,10 @@ function ProjectCard({
               marginBottom: "12px",
             }}
           >
-            <h3
+            <motion.h3
+              initial={false}
+              animate={{ x: hovered ? 14 : 0 }}
+              transition={{ type: "spring", stiffness: 260, damping: 24 }}
               style={{
                 fontFamily: "var(--font-display), serif",
                 fontSize: "clamp(28px, 4vw, 48px)",
@@ -159,10 +193,25 @@ function ProjectCard({
                 letterSpacing: "-0.02em",
                 color: "var(--text-primary)",
                 margin: 0,
+                position: "relative",
               }}
             >
+              <motion.span
+                aria-hidden
+                initial={false}
+                animate={{ opacity: hovered ? 1 : 0, x: hovered ? 0 : -8 }}
+                transition={{ duration: 0.3 }}
+                style={{
+                  color: "var(--accent)",
+                  position: "absolute",
+                  left: "-0.85em",
+                  display: "inline-block",
+                }}
+              >
+                —
+              </motion.span>
               {project.name}
-            </h3>
+            </motion.h3>
             {project.isOpenSource && (
               <span
                 style={{
@@ -274,6 +323,7 @@ function ProjectCard({
             href={project.href}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={(e) => e.stopPropagation()}
             style={{
               fontFamily: "var(--font-mono), monospace",
               fontSize: "0.6rem",

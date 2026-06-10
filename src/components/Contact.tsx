@@ -2,6 +2,8 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import Magnetic from "@/components/fx/Magnetic";
+import RevealText from "@/components/fx/RevealText";
 
 const socials = [
   { label: "Email", value: "aryanjha.works@gmail.com", href: "mailto:aryanjha.works@gmail.com" },
@@ -44,11 +46,16 @@ export default function Contact() {
               maxWidth: "900px",
             }}
           >
-            Let's build something{" "}
-            <span style={{ fontStyle: "italic", color: "var(--accent)" }}>
-              together
-            </span>
-            <span style={{ color: "var(--accent)" }}>.</span>
+            <RevealText
+              words={[
+                { text: "Let's" },
+                { text: "build" },
+                { text: "something" },
+                { text: "together.", italic: true, accent: true },
+              ]}
+              show={inView}
+              delay={0.15}
+            />
           </h2>
 
           <motion.p
@@ -68,38 +75,43 @@ export default function Contact() {
             collaborations. If you have a problem worth solving, I'd like to hear about it.
           </motion.p>
 
-          <motion.a
-            href="mailto:aryanjha.works@gmail.com"
+          <motion.div
             initial={{ opacity: 0 }}
             animate={inView ? { opacity: 1 } : {}}
             transition={{ delay: 0.45, duration: 0.6 }}
-            style={{
-              display: "inline-block",
-              marginTop: "40px",
-              padding: "16px 40px",
-              backgroundColor: "var(--text-primary)",
-              color: "var(--cream)",
-              fontFamily: "var(--font-mono), monospace",
-              fontSize: "0.65rem",
-              letterSpacing: "0.15em",
-              textTransform: "uppercase",
-              textDecoration: "none",
-              border: "1px solid var(--text-primary)",
-              transition: "all 0.25s ease",
-            }}
-            onMouseEnter={(e) => {
-              const el = e.currentTarget;
-              el.style.backgroundColor = "var(--accent)";
-              el.style.borderColor = "var(--accent)";
-            }}
-            onMouseLeave={(e) => {
-              const el = e.currentTarget;
-              el.style.backgroundColor = "var(--text-primary)";
-              el.style.borderColor = "var(--text-primary)";
-            }}
+            style={{ marginTop: "40px", display: "inline-block" }}
           >
-            Say Hello ↗
-          </motion.a>
+            <Magnetic strength={0.25}>
+              <a
+                href="mailto:aryanjha.works@gmail.com"
+                style={{
+                  display: "inline-block",
+                  padding: "16px 40px",
+                  backgroundColor: "var(--text-primary)",
+                  color: "var(--cream)",
+                  fontFamily: "var(--font-mono), monospace",
+                  fontSize: "0.65rem",
+                  letterSpacing: "0.15em",
+                  textTransform: "uppercase",
+                  textDecoration: "none",
+                  border: "1px solid var(--text-primary)",
+                  transition: "all 0.25s ease",
+                }}
+                onMouseEnter={(e) => {
+                  const el = e.currentTarget;
+                  el.style.backgroundColor = "var(--accent)";
+                  el.style.borderColor = "var(--accent)";
+                }}
+                onMouseLeave={(e) => {
+                  const el = e.currentTarget;
+                  el.style.backgroundColor = "var(--text-primary)";
+                  el.style.borderColor = "var(--text-primary)";
+                }}
+              >
+                Say Hello ↗
+              </a>
+            </Magnetic>
+          </motion.div>
         </motion.div>
 
         {/* Divider */}

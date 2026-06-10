@@ -26,7 +26,7 @@ export default function Navigation() {
       <motion.nav
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+        transition={{ duration: 0.6, delay: 1.2, ease: [0.22, 1, 0.36, 1] }}
         style={{
           position: "fixed",
           top: 0,
@@ -72,6 +72,7 @@ export default function Navigation() {
             <li key={link.href}>
               <a
                 href={link.href}
+                className="nav-link"
                 style={{
                   fontFamily: "var(--font-mono), monospace",
                   fontSize: "0.65rem",
@@ -79,14 +80,7 @@ export default function Navigation() {
                   textTransform: "uppercase",
                   color: "var(--text-secondary)",
                   textDecoration: "none",
-                  transition: "color 0.2s",
                 }}
-                onMouseEnter={(e) =>
-                  ((e.target as HTMLElement).style.color = "var(--accent)")
-                }
-                onMouseLeave={(e) =>
-                  ((e.target as HTMLElement).style.color = "var(--text-secondary)")
-                }
               >
                 {link.label}
               </a>

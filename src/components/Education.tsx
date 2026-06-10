@@ -2,6 +2,7 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import RevealText from "@/components/fx/RevealText";
 
 const certifications = [
   "Coding Ninjas — Data Structures",
@@ -57,10 +58,15 @@ export default function Education() {
               margin: "20px 0 0",
             }}
           >
-            Background &{" "}
-            <span style={{ fontStyle: "italic", color: "var(--accent)" }}>
-              Credentials
-            </span>
+            <RevealText
+              words={[
+                { text: "Background" },
+                { text: "&" },
+                { text: "Credentials", italic: true, accent: true },
+              ]}
+              show={inView}
+              delay={0.15}
+            />
           </h2>
         </motion.div>
 
