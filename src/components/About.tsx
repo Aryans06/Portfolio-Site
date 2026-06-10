@@ -192,7 +192,7 @@ export default function About() {
                 marginBottom: "28px",
               }}
             >
-              I'm a pre-final year Computer Science student at{" "}
+              I'm a final year Computer Science student at{" "}
               <span style={{ color: "var(--text-primary)", fontWeight: 500 }}>
                 SRM Institute of Science and Technology, Chennai
               </span>
