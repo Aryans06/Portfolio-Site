@@ -17,13 +17,13 @@ const projects = [
   },
   {
     number: "02",
-    name: "Beacon",
-    tagline: "AI-powered crisis management platform",
+    name: "Apex",
+    tagline: "Effective candidate Filtering AI Brain",
     description:
-      "Built a real-time emergency coordination platform with bidirectional Socket.io syncing data across 4 dedicated interfaces at <100ms latency. Integrated Google Gemini 2.5 Flash to process unstructured SOS signals in under 2 seconds, generating structured emergency response protocols automatically.",
-    tech: ["TypeScript", "Node.js", "Next.js", "Socket.io", "Gemini API"],
-    href: "https://github.com/Aryans06/Beacon",
-    highlight: "<100ms latency",
+      "Built a deterministic ranking engine that scores 100,000 candidates against a job description on a CPU-only machine in under a minute, using a weighted formula across skills, experience, behavioral signals, and education instead of slow per-candidate LLM calls.Built the recruiter web app with Next.js and Prisma/SQLite, using Google Gemini to parse resumes, generate proof-of-work assessment questions, and draft outreach emails, with support for 5 languages.",
+    tech: ["Next.js, TypeScript, Prisma, SQLite, Python, Google Gemini,Claude, Tailwind, Clerk"],
+    href: "https://github.com/Aryans06/Apex",
+    highlight: "100K candidates scored in under a minute, CPU-only, no LLM-per-row.",
   },
   {
     number: "03",
