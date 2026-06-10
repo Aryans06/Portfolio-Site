@@ -242,9 +242,9 @@ export default function About() {
               }}
             >
               {[
-                { label: "LinkedIn", href: "https://linkedin.com/in/aryan-jha" },
-                { label: "GitHub", href: "https://github.com/aryanjha" },
-                { label: "LeetCode", href: "https://leetcode.com/aryanjha" },
+                { label: "LinkedIn", href: "https://linkedin.com/in/aryanj06" },
+                { label: "GitHub", href: "https://github.com/Aryans06" },
+                { label: "LeetCode", href: "https://leetcode.com/bravo_delta" },
               ].map((link) => (
                 <a
                   key={link.label}
