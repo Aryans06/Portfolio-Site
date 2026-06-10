@@ -235,7 +235,7 @@ export default function Hero() {
               fontWeight: 300,
             }}
           >
-            Pre-final year CS student at{" "}
+            Final year CS student at{" "}
             <span style={{ color: "var(--text-primary)", fontWeight: 500 }}>
               SRM IST, Chennai
             </span>
