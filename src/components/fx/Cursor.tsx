@@ -68,61 +68,74 @@ export default function Cursor() {
           left: 0,
           x,
           y,
-          translateX: "-50%",
-          translateY: "-50%",
-          width: 5,
-          height: 5,
-          borderRadius: "50%",
-          backgroundColor: "var(--accent)",
           zIndex: 10000,
           pointerEvents: "none",
-          opacity: variant === "view" ? 0 : 1,
-          transition: "opacity 0.2s",
         }}
-      />
+      >
+        <div
+          style={{
+            width: 5,
+            height: 5,
+            borderRadius: "50%",
+            backgroundColor: "var(--accent)",
+            transform: "translate(-50%, -50%)",
+            opacity: variant === "view" ? 0 : 1,
+            transition: "opacity 0.2s",
+          }}
+        />
+      </motion.div>
+
       {/* Trailing ring — morphs over targets */}
       <motion.div
         aria-hidden
-        animate={{
-          width: ringSize,
-          height: ringSize,
-          scale: pressed ? 0.85 : 1,
-          backgroundColor:
-            variant === "view" ? "var(--accent)" : "rgba(201, 78, 42, 0)",
-        }}
-        transition={{ type: "spring", stiffness: 300, damping: 22 }}
+        animate={{ scale: pressed ? 0.85 : 1 }}
         style={{
           position: "fixed",
           top: 0,
           left: 0,
           x: ringX,
           y: ringY,
-          translateX: "-50%",
-          translateY: "-50%",
-          borderRadius: "50%",
-          border: "1px solid var(--accent)",
           zIndex: 9999,
           pointerEvents: "none",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          overflow: "hidden",
         }}
       >
-        <motion.span
-          animate={{ opacity: variant === "view" ? 1 : 0, scale: variant === "view" ? 1 : 0.5 }}
-          transition={{ duration: 0.2 }}
+        <motion.div
+          animate={{
+            width: ringSize,
+            height: ringSize,
+            marginLeft: -ringSize / 2,
+            marginTop: -ringSize / 2,
+            backgroundColor:
+              variant === "view" ? "var(--accent)" : "rgba(201, 78, 42, 0)",
+          }}
+          transition={{ type: "spring", stiffness: 300, damping: 22 }}
           style={{
-            fontFamily: "var(--font-mono), monospace",
-            fontSize: "0.55rem",
-            letterSpacing: "0.15em",
-            textTransform: "uppercase",
-            color: "var(--cream)",
-            whiteSpace: "nowrap",
+            borderRadius: "50%",
+            border: "1px solid var(--accent)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            overflow: "hidden",
           }}
         >
-          View ↗
-        </motion.span>
+          <motion.span
+            animate={{
+              opacity: variant === "view" ? 1 : 0,
+              scale: variant === "view" ? 1 : 0.5,
+            }}
+            transition={{ duration: 0.2 }}
+            style={{
+              fontFamily: "var(--font-mono), monospace",
+              fontSize: "0.55rem",
+              letterSpacing: "0.15em",
+              textTransform: "uppercase",
+              color: "var(--cream)",
+              whiteSpace: "nowrap",
+            }}
+          >
+            View ↗
+          </motion.span>
+        </motion.div>
       </motion.div>
     </>
   );

@@ -51,6 +51,7 @@ export default function RootLayout({
         style={{ fontFamily: "var(--font-body), sans-serif" }}
       >
         {children}
+        <div className="grain" aria-hidden />
       </body>
     </html>
   );

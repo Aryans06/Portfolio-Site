@@ -2,6 +2,7 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import RevealText from "@/components/fx/RevealText";
 
 const skillGroups = [
   {
@@ -74,10 +75,14 @@ export default function Skills() {
                 margin: "20px 0 0",
               }}
             >
-              Technical{" "}
-              <span style={{ fontStyle: "italic", color: "var(--accent)" }}>
-                Stack
-              </span>
+              <RevealText
+                words={[
+                  { text: "Technical" },
+                  { text: "Stack", italic: true, accent: true },
+                ]}
+                show={inView}
+                delay={0.15}
+              />
             </h2>
           </motion.div>
 
@@ -142,9 +147,16 @@ export default function Skills() {
                   gap: "8px",
                 }}
               >
-                {group.skills.map((skill) => (
-                  <span
+                {group.skills.map((skill, si) => (
+                  <motion.span
                     key={skill}
+                    initial={{ opacity: 0, y: 10, scale: 0.92 }}
+                    animate={inView ? { opacity: 1, y: 0, scale: 1 } : {}}
+                    transition={{
+                      duration: 0.45,
+                      delay: 0.3 + gi * 0.08 + si * 0.05,
+                      ease: [0.22, 1, 0.36, 1] as [number, number, number, number],
+                    }}
                     style={{
                       display: "inline-block",
                       padding: "5px 12px",
@@ -172,7 +184,7 @@ export default function Skills() {
                     }}
                   >
                     {skill}
-                  </span>
+                  </motion.span>
                 ))}
               </div>
             </motion.div>

@@ -3,12 +3,20 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import Image from "next/image";
+import Counter from "@/components/fx/Counter";
+import RevealText from "@/components/fx/RevealText";
 
-const stats = [
-  { value: "9.59", label: "CGPA" },
-  { value: "250+", label: "DSA Problems" },
-  { value: "100+", label: "NPM Downloads" },
-  { value: "2027", label: "Graduating" },
+const stats: {
+  value: number;
+  label: string;
+  decimals?: number;
+  suffix?: string;
+  from?: number;
+}[] = [
+  { value: 9.59, decimals: 2, label: "CGPA" },
+  { value: 250, suffix: "+", label: "DSA Problems" },
+  { value: 100, suffix: "+", label: "NPM Downloads" },
+  { value: 2027, from: 2020, label: "Graduating" },
 ];
 
 export default function About() {
@@ -43,8 +51,9 @@ export default function About() {
           >
             <span className="section-label">01 — About</span>
 
-            {/* Portrait */}
+            {/* Portrait — grayscale until hovered, frame slides on hover */}
             <div
+              className="portrait"
               style={{
                 position: "relative",
                 marginTop: "24px",
@@ -53,6 +62,7 @@ export default function About() {
             >
               {/* Offset accent frame */}
               <div
+                className="portrait-frame"
                 style={{
                   position: "absolute",
                   top: "12px",
@@ -62,6 +72,7 @@ export default function About() {
                   border: "1px solid var(--accent)",
                   zIndex: 0,
                   pointerEvents: "none",
+                  transition: "transform 0.5s cubic-bezier(0.22, 1, 0.36, 1)",
                 }}
               />
               <div
@@ -78,6 +89,7 @@ export default function About() {
                   src="/aryan.jpg"
                   alt="Aryan Jha"
                   fill
+                  className="portrait-img"
                   style={{ objectFit: "cover", objectPosition: "center top" }}
                   sizes="320px"
                   priority
@@ -140,7 +152,12 @@ export default function About() {
                       lineHeight: 1,
                     }}
                   >
-                    {stat.value}
+                    <Counter
+                      value={stat.value}
+                      from={stat.from}
+                      decimals={stat.decimals}
+                      suffix={stat.suffix}
+                    />
                   </div>
                   <div
                     style={{
@@ -177,10 +194,15 @@ export default function About() {
                 margin: "0 0 40px",
               }}
             >
-              Who I{" "}
-              <span style={{ fontStyle: "italic", color: "var(--accent)" }}>
-                am
-              </span>
+              <RevealText
+                words={[
+                  { text: "Who" },
+                  { text: "I" },
+                  { text: "am", italic: true, accent: true },
+                ]}
+                show={inView}
+                delay={0.2}
+              />
             </h2>
 
             <p
@@ -282,6 +304,21 @@ export default function About() {
       <style>{`
         @media (max-width: 768px) {
           .about-grid { grid-template-columns: 1fr !important; gap: 60px !important; }
+        }
+        .portrait-img {
+          filter: grayscale(100%);
+          transform: scale(1.02);
+          transition: filter 0.6s ease, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .portrait:hover .portrait-img {
+          filter: grayscale(0%);
+          transform: scale(1.07);
+        }
+        .portrait:hover .portrait-frame {
+          transform: translate(-7px, -7px);
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .portrait-img { filter: none; transform: none; }
         }
       `}</style>
     </section>
