@@ -2,11 +2,15 @@
 
 import { useEffect, useState } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
+import useMediaQuery from "./useMediaQuery";
 
 type Variant = "default" | "hover" | "view";
 
 export default function Cursor() {
-  const [enabled, setEnabled] = useState(false);
+  const finePointer = useMediaQuery("(pointer: fine)");
+  const reducedMotion = useMediaQuery("(prefers-reduced-motion: reduce)");
+  const enabled = finePointer && !reducedMotion;
+
   const [variant, setVariant] = useState<Variant>("default");
   const [pressed, setPressed] = useState(false);
 
@@ -16,11 +20,8 @@ export default function Cursor() {
   const ringY = useSpring(y, { stiffness: 350, damping: 30, mass: 0.6 });
 
   useEffect(() => {
-    const fine = window.matchMedia("(pointer: fine)").matches;
-    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (!fine || reduced) return;
+    if (!enabled) return;
 
-    setEnabled(true);
     document.body.classList.add("custom-cursor");
 
     const onMove = (e: MouseEvent) => {
@@ -51,7 +52,7 @@ export default function Cursor() {
       window.removeEventListener("mousedown", onDown);
       window.removeEventListener("mouseup", onUp);
     };
-  }, [x, y]);
+  }, [enabled, x, y]);
 
   if (!enabled) return null;
 

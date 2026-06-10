@@ -72,7 +72,7 @@ export default function Contact() {
             }}
           >
             Currently open to internships, freelance projects, and interesting
-            collaborations. If you have a problem worth solving, I'd like to hear about it.
+            collaborations. If you have a problem worth solving, I&apos;d like to hear about it.
           </motion.p>
 
           <motion.div

@@ -85,7 +85,7 @@ export default function Projects() {
         {/* Project list */}
         <div style={{ display: "flex", flexDirection: "column" }}>
           {projects.map((project, i) => (
-            <ProjectCard key={project.name} project={project} index={i} inView={inView} />
+            <ProjectCard key={project.name} project={project} index={i} />
           ))}
         </div>
       </div>
@@ -96,11 +96,9 @@ export default function Projects() {
 function ProjectCard({
   project,
   index,
-  inView,
 }: {
   project: (typeof projects)[0];
   index: number;
-  inView: boolean;
 }) {
   const cardRef = useRef(null);
   const cardInView = useInView(cardRef, { once: true, margin: "-60px" });

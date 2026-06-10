@@ -2,19 +2,18 @@
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence, useMotionValue, animate } from "framer-motion";
+import useMediaQuery from "./useMediaQuery";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
 export default function Preloader() {
+  const reducedMotion = useMediaQuery("(prefers-reduced-motion: reduce)");
   const [done, setDone] = useState(false);
   const [count, setCount] = useState(0);
   const progress = useMotionValue(0);
 
   useEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      setDone(true);
-      return;
-    }
+    if (reducedMotion) return;
     document.body.style.overflow = "hidden";
     const controls = animate(progress, 100, {
       duration: 1,
@@ -26,7 +25,7 @@ export default function Preloader() {
       controls.stop();
       document.body.style.overflow = "";
     };
-  }, [progress]);
+  }, [reducedMotion, progress]);
 
   useEffect(() => {
     if (done) document.body.style.overflow = "";
@@ -34,7 +33,7 @@ export default function Preloader() {
 
   return (
     <AnimatePresence>
-      {!done && (
+      {!done && !reducedMotion && (
         <motion.div
           exit={{ y: "-100%" }}
           transition={{ duration: 0.7, ease: EASE }}
